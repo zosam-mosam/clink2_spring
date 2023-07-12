@@ -1,22 +1,21 @@
 package com.josam.clink.user;
 
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 import lombok.Data;
 
-//@Entity 어노테이션 없어도 되나..?
 @Data
-@Table(name="user")
 public class UserVO {
-	@Id
-	int userNo;
-	String userId;
-	String userName;
-	String nickname;
-	String pwd;
-	String email;
-	String phoneNumber;
-	String photoUrl;
-	int status;
+	
+	private int userNO;
+	private String userId;
+	private String userName;
+	private String nickname;
+	private String pwd;
+	private String email;
+	private String phoneNumber;
+	private String photoUrl;
+	private String userStatus;
+	private String userSocial;
+	private String userAccessToekn;
+	private String userUpdateToken;
+	
 }
