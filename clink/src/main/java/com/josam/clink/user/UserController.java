@@ -1,11 +1,16 @@
 package com.josam.clink.user;
 
+import java.net.http.HttpClient.Redirect;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequestMapping("/user")
@@ -14,17 +19,31 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@PostMapping("/join.do")
+	@PostMapping("/join.do") // 얘는 되는 애,,
 	@ResponseBody
 	public String join(@RequestBody UserVO userVO) {
-		System.out.println(userVO);
+//		System.out.println(userVO);
 		int r = userService.insert(userVO);
 		if (r == 0) {
-			System.out.println("등록실패");
+			return "no";
 		} else {
-			System.out.println("등록성공");
+			return "yes";
 		}
-		return "도착";
-//		System.out.println("=======도착============");
+	}
+	
+	@PostMapping("/login.do")
+	@ResponseBody
+	public String login(@RequestBody
+			UserVO userVO) { 
+		System.out.println("도착했니?@!?!?!?!?!?!??!!!?");
+		int login = userService.login(userVO.userId, userVO.pwd);
+		System.out.println(login);
+		if(login == 0) {
+			return "fail";
+		}else {
+			// 토큰..? 저장
+			return "success";
+		}
+		
 	}
 }
