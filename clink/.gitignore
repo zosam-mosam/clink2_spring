@@ -5,9 +5,9 @@ target/
 !**/src/test/**/target/
 
 ### Security ###
-**/application.*
-**/*.properties
-./src/main/resources/application-aws.properties
+./src/main/resources/application.properties
+application.*
+*.properties
 
 ### STS ###
 .apt_generated
