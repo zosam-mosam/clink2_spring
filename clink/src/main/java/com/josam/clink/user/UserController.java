@@ -22,7 +22,6 @@ public class UserController {
 	@PostMapping("/join.do") // 얘는 되는 애,,
 	@ResponseBody
 	public String join(@RequestBody UserVO userVO) {
-//		System.out.println(userVO);
 		int r = userService.insert(userVO);
 		if (r == 0) {
 			return "no";
@@ -30,20 +29,17 @@ public class UserController {
 			return "yes";
 		}
 	}
-	
+
 	@PostMapping("/login.do")
 	@ResponseBody
-	public String login(@RequestBody
-			UserVO userVO) { 
-		System.out.println("도착했니?@!?!?!?!?!?!??!!!?");
+	public String login(@RequestBody UserVO userVO) {
 		int login = userService.login(userVO.userId, userVO.pwd);
 		System.out.println(login);
-		if(login == 0) {
+		if (login == 0) {
 			return "fail";
-		}else {
+		} else {
 			// 토큰..? 저장
 			return "success";
 		}
-		
 	}
 }
