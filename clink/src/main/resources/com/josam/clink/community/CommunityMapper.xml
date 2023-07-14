@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.josam.clink.community.CommunityMapper">
+	<select id="list">
+		select * from board order by boardLikes desc Limit 5
+	</select>
+	<select id="freeList">
+		select * from board where boardCategoryNo=0 order by boardLikes desc Limit 5
+	</select>
+	<select id="infoList">
+		select * from board where boardCategoryNo=1 order by boardLikes desc Limit 5
+	</select>
+	<select id="annList">
+		select * from board where boardCategoryNo=2 order by boardLikes desc Limit 5
+	</select>
+</mapper>
