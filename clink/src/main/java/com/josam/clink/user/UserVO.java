@@ -18,5 +18,4 @@ public class UserVO {
 	private String userAccessToekn;
 	private String userUpdateToken;
 	
-	
 }

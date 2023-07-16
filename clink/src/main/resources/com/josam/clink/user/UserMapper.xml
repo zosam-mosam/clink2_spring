@@ -10,8 +10,9 @@
 			#{photoUrl}, #{userStatus}, #{userSocial}, #{userAccessToekn}, #{userUpdateToken}
 		)
 	</insert>
+  
+  	<select id="login" parameterType="String" resultType="INTEGER">
+		SELECT
+		count(*) FROM user WHERE userId = #{userId} AND pwd=MD5(#{pwd});
+	</select>
 </mapper>
-
-
-
-

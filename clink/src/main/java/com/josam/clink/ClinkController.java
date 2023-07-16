@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/clink") // localhost:8080//clink/~~
+@RequestMapping("/clink") // localhost:8080/clink/~~
 public class ClinkController {
 
 	@GetMapping("/main")
