@@ -12,19 +12,19 @@ public class ChallengeService {
 	@Autowired
 	ChallengeMapper mapper;
 
-	public ChallengeVO myChallenge(ExpenseVO vo) {
+	public ChallengeVO myChallenge(UserVO uservo) {
 		// 비밀번호 암호화
-		return mapper.myChallenge(vo);
+		return mapper.myChallenge(uservo);
 	}
 	
-	public List<ExpenseVO> todayExpense(ExpenseVO vo) {
+	public List<ExpenseVO> todayExpense(UserVO vo) {
 		
 		return mapper.todayExpense(vo);
 	}
 	
-	public List<ExpenseVO> weekExpense(ExpenseVO vo){
+	public List<ExpenseVO> weekExpense(UserVO uvo){
 		
-		return mapper.weekExpense(vo);
+		return mapper.weekExpense(uvo);
 	};
 	
 	public List<ExpenseVO> selectedExpense(ExpenseVO vo){

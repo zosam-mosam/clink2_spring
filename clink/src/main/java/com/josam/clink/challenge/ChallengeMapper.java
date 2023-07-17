@@ -9,9 +9,9 @@ import com.josam.clink.user.UserVO;
 @Mapper
 public interface ChallengeMapper {
 	
-	ChallengeVO myChallenge(ExpenseVO vo);
-	List<ExpenseVO> todayExpense(ExpenseVO vo);
-	List<ExpenseVO> weekExpense(ExpenseVO vo);
+	ChallengeVO myChallenge(UserVO vo);
+	List<ExpenseVO> todayExpense(UserVO vo);
+	List<ExpenseVO> weekExpense(UserVO vo);
 	List<ExpenseVO> selectedExpense(ExpenseVO vo);
 	List<DayChallengeVO> allExpense(ExpenseVO vo);
 	List<DayChallengeVO> getTodayExpense(ExpenseVO vo);
