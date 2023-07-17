@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.josam.clink.user.UserMapper">
-<<<<<<< HEAD
-	<insert id="insert">
-=======
-
 <!-- 로컬 테스트용 
 	<insert id="insert" parameterType="com.josam.clink.user.UserVO">
 		INSERT INTO user (
@@ -34,7 +30,6 @@
 	
 <!-- 원본!!-->
 	<insert id="insert" parameterType="com.josam.clink.user.UserVO">
->>>>>>> 539599d365fa8531e4a05ec277196f12ea746081
 		INSERT INTO User (
 			`userId`, `userName`, `nickname`, `pwd`, `email`, 
 			`phoneNumber`, `photoUrl`, `userStatus`, `userSocial`, `userAccessToken`, `userUpdateToken`

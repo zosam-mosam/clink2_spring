@@ -5,9 +5,12 @@ target/
 !**/src/test/**/target/
 
 ### Security ###
-./src/main/resources/application.properties
+src/main/resources/application.properties
 application.*
 *.properties
+
+src/bin
+
 
 ### STS ###
 .apt_generated
