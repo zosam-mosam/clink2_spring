@@ -6,8 +6,10 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CommunityMapper {
-	List<CommuityVO> list();
-	List<CommuityVO> freeList(); 
-	List<CommuityVO> infoList(); 
-	List<CommuityVO> annList(); 
+	List<CommunityVO> list();
+	List<CommunityVO> freeList(); 
+	List<CommunityVO> infoList(); 
+	List<CommunityVO> annList();
+	void insertPost(CommunityVO cvo);
+//	void insertHashTag(CommunityVO cvo);
 }

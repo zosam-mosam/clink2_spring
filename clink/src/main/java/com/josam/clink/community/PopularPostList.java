@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class PopularPostList {
-	private List<CommuityVO> popularPost;
-	private List<CommuityVO> popularFreePost;
-	private List<CommuityVO> popularInfoPost;
-	private List<CommuityVO> popularAnnPost;
+	private List<CommunityVO> popularPost;
+	private List<CommunityVO> popularFreePost;
+	private List<CommunityVO> popularInfoPost;
+	private List<CommunityVO> popularAnnPost;
 }

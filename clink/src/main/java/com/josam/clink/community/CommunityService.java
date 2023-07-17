@@ -11,20 +11,28 @@ public class CommunityService {
 	@Autowired
 	CommunityMapper mapper;
 	
-	public List<CommuityVO> boardList(){
-		List<CommuityVO> list = mapper.list();
+	public List<CommunityVO> boardList(){
+		List<CommunityVO> list = mapper.list();
 		return list;
 	}
-	public List<CommuityVO> boardFreeList(){
-		List<CommuityVO> list = mapper.freeList();
+	public List<CommunityVO> boardFreeList(){
+		List<CommunityVO> list = mapper.freeList();
 		return list;
 	}
-	public List<CommuityVO> boardInfoList(){
-		List<CommuityVO> list = mapper.infoList();
+	public List<CommunityVO> boardInfoList(){
+		List<CommunityVO> list = mapper.infoList();
 		return list;
 	}
-	public List<CommuityVO> boardAnnList(){
-		List<CommuityVO> list = mapper.annList();
+	public List<CommunityVO> boardAnnList(){
+		List<CommunityVO> list = mapper.annList();
 		return list;
 	}
+	public void insertPost(CommunityVO cvo) {
+		mapper.insertPost(cvo);
+	}
+//	public void insertHashTag(CommunityVO cvo) {
+//		for(int i=0;i<cvo.getHashTagVo().length;i++) {
+//			mapper.insertHashTag(cvo.getHashTagVo()[i]);
+//		}
+//	}
 }
