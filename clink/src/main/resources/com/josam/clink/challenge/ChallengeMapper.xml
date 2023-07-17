@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.josam.clink.challenge.ChallengeMapper">
+  
+  	<select id="myChallenge" parameterType="com.josam.clink.challenge.ExpenseVO" resultType="com.josam.clink.challenge.ChallengeVO">
+		SELECT * FROM Challenge WHERE userNO=#{userNO}
+	</select>
+	
+	<select id="todayExpense" parameterType="com.josam.clink.challenge.ExpenseVO" resultType="com.josam.clink.challenge.ExpenseVO">
+		SELECT * FROM Expense WHERE userNO=#{userNO} AND DATE_FORMAT(expenseDate, '%Y-%m-%d') = DATE_FORMAT(NOW(), '%Y-%m-%d') 
+	</select>
+	
+	<select id="weekExpense" parameterType="com.josam.clink.challenge.ExpenseVO" resultType="com.josam.clink.challenge.ExpenseVO">
+		SELECT * FROM Expense WHERE userNO=#{userNO} AND expenseDate BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK) AND NOW(); 
+	</select>
+	
+	<select id="selectedExpense" parameterType="com.josam.clink.challenge.ExpenseVO" resultType="com.josam.clink.challenge.ExpenseVO">
+		SELECT * FROM Expense WHERE userNO=#{userNO} AND expenseDate BETWEEN #{startDate} AND #{endDate}
+	</select>
+	<!-- data 넣는 용도 -->
+	<select id="getAllExpense" parameterType="com.josam.clink.challenge.ExpenseVO" resultType="com.josam.clink.challenge.DayChallengeVO">
+		SELECT userNo, sum(expenseAmount) as amount,DATE_FORMAT(expenseDate, '%Y-%m-%d') as successDate  FROM clink.Expense GROUP BY DATE_FORMAT(expenseDate, '%Y-%m-%d');
+	</select>
+	<select id="getTodayExpense" parameterType="com.josam.clink.challenge.ExpenseVO" resultType="com.josam.clink.challenge.DayChallengeVO">
+		SELECT userNo, sum(expenseAmount) as amount,DATE_FORMAT(expenseDate, '%Y-%m-%d') as successDate  FROM clink.Expense WHERE DATE_FORMAT(expenseDate, '%Y-%m-%d')=DATE_FORMAT(NOW(), '%Y-%m-%d') GROUP BY DATE_FORMAT(expenseDate, '%Y-%m-%d') ;
+	</select>
+	<insert id="insertDayChallenge" parameterType="com.josam.clink.challenge.DayChallengeVO">
+		INSERT INTO dayChallenge (userNo, successDate, amount) VALUES (#{userNO}, #{successDate}, #{amount})
+	</insert>
+</mapper>
