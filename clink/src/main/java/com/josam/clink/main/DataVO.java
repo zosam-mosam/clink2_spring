@@ -1,6 +1,5 @@
 package com.josam.clink.main;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
