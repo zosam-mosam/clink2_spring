@@ -50,12 +50,11 @@ public class UserController {
 		int checkDuplicateId = userService.checkDuplicateId(userVO.getUserId());
 		System.out.println(checkDuplicateId);
 		if (checkDuplicateId == 0) {
+
 			return "success";
 		} else {
 			return "fail";
 		}
 	}
-	
-
 	
 }
