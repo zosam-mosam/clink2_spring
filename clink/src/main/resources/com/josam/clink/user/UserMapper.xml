@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.josam.clink.user.UserMapper">
+<<<<<<< HEAD
 	<insert id="insert">
+=======
+
+<!-- 로컬 테스트용 
+	<insert id="insert" parameterType="com.josam.clink.user.UserVO">
+		INSERT INTO user (
+			`userId`, `userName`, `nickname`, `pwd`, `email`, 
+			`phoneNumber`, `photoUrl`, `userStatus`, `userSocial`, `userAccessToken`, `userUpdateToken`
+		) VALUES (
+			#{userId}, #{userName}, #{nickname}, MD5(#{pwd}),#{email}, #{phoneNumber},
+			#{photoUrl}, #{userStatus}, #{userSocial}, #{userAccessToken}, #{userUpdateToken}
+		)
+		<selectKey keyProperty="userNo" order="AFTER" resultType="int">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+  
+  	<select id="login" parameterType="com.josam.clink.user.UserVO" resultType="com.josam.clink.user.UserVO">
+		SELECT * FROM user WHERE userId = #{userId} AND pwd=MD5(#{pwd});
+	</select>
+	
+	<select id="checkDuplicateId" resultType="INTEGER">
+		select count(*) from user where userId =#{userId}
+	</select>
+	
+	 <select id="selectUserById" parameterType="int" resultType="com.josam.clink.user.UserVO">
+        SELECT * FROM user WHERE userId = #{userId}
+    </select>
+-->
+	
+<!-- 원본!!-->
+	<insert id="insert" parameterType="com.josam.clink.user.UserVO">
+>>>>>>> 539599d365fa8531e4a05ec277196f12ea746081
 		INSERT INTO User (
 			`userId`, `userName`, `nickname`, `pwd`, `email`, 
 			`phoneNumber`, `photoUrl`, `userStatus`, `userSocial`, `userAccessToken`, `userUpdateToken`
 		) VALUES (
 			#{userId}, #{userName}, #{nickname}, MD5(#{pwd}),   #{email}, #{phoneNumber},
-			#{photoUrl}, #{userStatus}, #{userSocial}, #{userAccessToekn}, #{userUpdateToken}
+			#{photoUrl}, #{userStatus}, #{userSocial}, #{userAccessToken}, #{userUpdateToken}
 		)
+			<selectKey keyProperty="userNo" order="AFTER" resultType="int">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
 	</insert>
+  
+  	<select id="login" parameterType="com.josam.clink.user.UserVO" resultType="com.josam.clink.user.UserVO">
+		SELECT * FROM User WHERE userId = #{userId} AND pwd=MD5(#{pwd});
+	</select>
 </mapper>
-
-
-
-

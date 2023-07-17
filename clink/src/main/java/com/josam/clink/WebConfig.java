@@ -16,3 +16,4 @@ public class WebConfig  implements WebMvcConfigurer{
 	            .maxAge(3000); // 원하는 시간만큼 pre-flight 리퀘스트를 캐싱
 	    }
 }
+

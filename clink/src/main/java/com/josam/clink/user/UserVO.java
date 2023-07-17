@@ -4,8 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserVO {
-	
-	private int userNO;
+	private int userNo;
 	private String userId;
 	private String userName;
 	private String nickname;
@@ -15,8 +14,7 @@ public class UserVO {
 	private String photoUrl;
 	private String userStatus;
 	private String userSocial;
-	private String userAccessToekn;
-	private String userUpdateToken;
-	
-	
+	private String userAccessToken;
+	private String userUpdateToken;	
+
 }
