@@ -33,10 +33,16 @@ public class UserController {
 	
 	@PostMapping("/login.do")
 	@ResponseBody
+<<<<<<< HEAD
+	public String login(@RequestBody UserVO userVO) { 
+		System.out.println("도착했니?@!?!?!?!?!?!??!!!?");
+		int login = userService.login(userVO.getUserId(), userVO.getPwd());
+=======
 	public String login(@RequestBody
 			UserVO userVO) { 
 		System.out.println("도착했니?@!?!?!?!?!?!??!!!?");
 		int login = userService.login(userVO.userId, userVO.pwd);
+>>>>>>> upstream/main
 		System.out.println(login);
 		if(login == 0) {
 			return "fail";
