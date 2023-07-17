@@ -5,13 +5,13 @@
 		SELECT quoteAuthor, quoteContent FROM Quote WHERE quoteNo = #{no};
 	</select>
 
-	<select id="getMonthData" parameterType="string" resultType="com.josam.clink.main.MonthDataVO">
-		SELECT DATE('2023-07-14'), 1 FROM Expense WHERE userNo=#{1};
+	<select id="getMonthData" resultType="com.josam.clink.main.MonthDataVO">
+		SELECT DATE(successDate) as date, if((SELECT goal FROM Challenge WHERE userNO = #{userNo}) - amount >=0 , '1', '0') as val FROM dayChallenge WHERE userNo=#{userNo};
 	</select>
 	
-	<select id="getData" parameterType="string" resultType="com.josam.clink.main.DataVO">
-		SELECT sum(dat.expenseAmount) as sum, (SELECT goal FROM Challenge WHERE userNo=1) as challenge, max(dat.expenseAmount) as high, min(dat.expenseAmount) as low, avg(dat.expenseAmount) as avg
-		FROM (select * FROM Expense where DATE(expenseDate) = DATE('2023-07-16')) as dat;
+	<select id="getData" resultType="com.josam.clink.main.DataVO">
+		SELECT sum(dat.expenseAmount) as sum, (SELECT goal FROM Challenge WHERE userNo=#{userNo}) as challenge, max(dat.expenseAmount) as high, min(dat.expenseAmount) as low, avg(dat.expenseAmount) as avg
+		FROM (select * FROM Expense where DATE(expenseDate) = DATE(#{yesterday})) as dat;
 	</select>
 	
 	<select id="getUserNo" parameterType="string" resultType="INTEGER">

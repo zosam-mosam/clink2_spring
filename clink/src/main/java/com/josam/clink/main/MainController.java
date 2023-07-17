@@ -2,17 +2,14 @@ package com.josam.clink.main;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/main") // http://localhost:port/main/info?userId=testuser
+@RequestMapping("/main")
 public class MainController {
 
 	@Autowired
@@ -27,6 +24,9 @@ public class MainController {
 		//userID
 		mainVO.setUserID(userId);
 
+		//userNo
+		int userNo = mainService.getUserNo(userId);
+		
 		//Quote
 		int quoteNumber = 2;
 		QuoteVO quote = mainService.getQuote(quoteNumber);
@@ -34,19 +34,17 @@ public class MainController {
 		if(quote == null) System.out.println("quote Error");
 		else mainVO.setQuote(quote);
 
+		//Time set
+		Date yesterday = Date.valueOf(LocalDate.now().plusDays(-1));
+		
 		// Month data Test
-		List<MonthDataVO> monthData = mainService.getMonthData(userId);
-		// mock data
-		monthData.add(new MonthDataVO(Date.valueOf("2023-07-10"), 1));
-		monthData.add(new MonthDataVO(Date.valueOf("2023-07-11"), 0));
-		monthData.add(new MonthDataVO(Date.valueOf("2023-07-12"), 1));
+		List<MonthDataVO> monthData = mainService.getMonthData(userNo, yesterday);
 		mainVO.setMonthData(monthData);
 
 		//Data test
-		DataVO dataVO = mainService.getData(userId);
-		dataVO.setChallenge(50000);
+		DataVO dataVO = mainService.getData(userNo, yesterday);
 		mainVO.setVo(dataVO);
-
+		
 		return mainVO;
 	}
 	
