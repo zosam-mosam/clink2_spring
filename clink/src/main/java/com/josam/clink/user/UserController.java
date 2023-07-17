@@ -30,20 +30,4 @@ public class UserController {
 			return "yes";
 		}
 	}
-	
-	@PostMapping("/login.do")
-	@ResponseBody
-	public String login(@RequestBody
-			UserVO userVO) { 
-		System.out.println("도착했니?@!?!?!?!?!?!??!!!?");
-		int login = userService.login(userVO.getUserId(), userVO.getPwd());
-		System.out.println(login);
-		if(login == 0) {
-			return "fail";
-		}else {
-			// 토큰..? 저장
-			return "success";
-		}
-		
-	}
 }
