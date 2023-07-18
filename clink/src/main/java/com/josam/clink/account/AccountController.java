@@ -17,27 +17,28 @@ import com.josam.clink.user.UserVO;
 @RequestMapping("/clink/account")
 @Controller
 public class AccountController {
-	
+
 	@Autowired
 	AccountService accountService;
-	
+
 	@PostMapping("/registAccount.do")
 	@ResponseBody
 	public int registAccount(@RequestBody AccountVO accountVO, HttpServletRequest req) throws Exception {
 		int registAccount = accountService.registAccount(accountVO);
-		System.out.println("registAccount:"+registAccount);
+		System.out.println("registAccount:" + registAccount);
 		if (registAccount == 0) {
 			return 0;
 		} else {
 			return 1;
 		}
 	}
+
 	@PostMapping("/checkAccount.do")
 	@ResponseBody
-	public List<AccountVO> checkAccount(@RequestBody AccountVO accountVO, HttpServletRequest req)throws Exception  {
+	public List<AccountVO> checkAccount(@RequestBody AccountVO accountVO, HttpServletRequest req) throws Exception {
 		List<AccountVO> checkAccount = accountService.checkAccount(accountVO);
-			return checkAccount;
-// 없으면 null 반환~!		
-		
+		return checkAccount;
+// 없으면 null 반환	
+
 	}
 }
