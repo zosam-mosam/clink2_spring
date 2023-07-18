@@ -56,6 +56,16 @@ public class UserController {
 		}
 	}
 	
-
-	
+	// 개인정보 수정
+	@PostMapping("/update.do")
+	@ResponseBody
+	public String update(@RequestBody UserVO userVO) {
+		 int r = userService.update(userVO);
+		 if (r == 0) {
+			 System.out.println(userVO);
+			 return "fail";
+		} else {
+			return "success";
+		}
+	}
 }

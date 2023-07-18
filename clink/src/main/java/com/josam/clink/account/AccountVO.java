@@ -8,4 +8,5 @@ public class AccountVO {
 	String accountNumber;
 	int accountBalance;
 	int accountType;
+	int bankType;
 }

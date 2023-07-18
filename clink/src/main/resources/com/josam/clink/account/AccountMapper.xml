@@ -5,11 +5,14 @@
 	<insert id="registAccount"
 		parameterType="com.josam.clink.account.AccountVO">
 		INSERT INTO Account (
-		`userNo`, `accountNumber`, `accountBalance`, `accountType`
+		`userNo`, `accountNumber`, `accountBalance`, `accountType`, `bankType`
 
 		) VALUES (
-		#{userNo}, #{accountNumber}, #{accountBalance}, #{accountType}
+		#{userNo}, #{accountNumber}, #{accountBalance}, #{accountType}, #{bankType}
 		)
-
 	</insert>
+	
+	<select id="checkAccount" parameterType="com.josam.clink.account.AccountVO" resultType="com.josam.clink.account.AccountVO">
+	SELECT * FROM Account WHERE (accountType = 1 OR accountType = 2) AND userNo=${userNo};
+	</select>
 </mapper>

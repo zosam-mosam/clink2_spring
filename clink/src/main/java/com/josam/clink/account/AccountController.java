@@ -1,5 +1,7 @@
 package com.josam.clink.account;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -22,7 +24,6 @@ public class AccountController {
 	@PostMapping("/registAccount.do")
 	@ResponseBody
 	public int registAccount(@RequestBody AccountVO accountVO, HttpServletRequest req) throws Exception {
-		
 		int registAccount = accountService.registAccount(accountVO);
 		System.out.println("registAccount:"+registAccount);
 		if (registAccount == 0) {
@@ -30,5 +31,13 @@ public class AccountController {
 		} else {
 			return 1;
 		}
+	}
+	@PostMapping("/checkAccount.do")
+	@ResponseBody
+	public List<AccountVO> checkAccount(@RequestBody AccountVO accountVO, HttpServletRequest req)throws Exception  {
+		List<AccountVO> checkAccount = accountService.checkAccount(accountVO);
+			return checkAccount;
+// 없으면 null 반환~!		
+		
 	}
 }
