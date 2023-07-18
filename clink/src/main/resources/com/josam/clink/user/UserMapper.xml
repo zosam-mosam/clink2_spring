@@ -58,3 +58,4 @@
     update User set userName= #{userName}, nickname= #{nickname},  pwd= #{pwd} where userNo = #{userNo}
     </update>
 </mapper>
+
