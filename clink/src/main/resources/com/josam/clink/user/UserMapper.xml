@@ -53,4 +53,9 @@
 	 <select id="selectUserById" parameterType="INTEGER" resultType="com.josam.clink.user.UserVO">
         SELECT * FROM User WHERE userId = #{userId}
     </select>
+    
+    <update id="update" parameterType="com.josam.clink.user.UserVO"  >
+    update User set userName= #{userName}, nickname= #{nickname},  pwd= #{pwd} where userNo = #{userNo}
+    </update>
 </mapper>
+

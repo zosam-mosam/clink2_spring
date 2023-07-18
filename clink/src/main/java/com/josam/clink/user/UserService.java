@@ -19,9 +19,6 @@ public class UserService {
 	}
 	
 	public UserVO login(UserVO vo) {
-//		Map map = new HashMap();
-//		map.put("userId", userId);
-//		map.put("pwd", pwd);
 		return userMapper.login(vo);
 	}
 	
@@ -31,6 +28,10 @@ public class UserService {
 	
 	public int checkDuplicateId(String userId) {
 		return userMapper.checkDuplicateId(userId);
+	}
+	
+	public int update(UserVO vo) {
+		return userMapper.update(vo);
 	}
 	
 	   

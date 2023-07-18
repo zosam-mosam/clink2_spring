@@ -9,4 +9,5 @@ public interface UserMapper {
 	UserVO login(UserVO vo);
 	int checkDuplicateId(String userId);
 	 UserVO selectUserById(int userId);
+	 int update(UserVO vo);
 }
