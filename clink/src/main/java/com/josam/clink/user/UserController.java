@@ -50,12 +50,14 @@ public class UserController {
 		int checkDuplicateId = userService.checkDuplicateId(userVO.getUserId());
 		System.out.println(checkDuplicateId);
 		if (checkDuplicateId == 0) {
+
 			return "success";
 		} else {
 			return "fail";
 		}
 	}
 	
+
 	// 개인정보 수정
 	@PostMapping("/update.do")
 	@ResponseBody
@@ -68,4 +70,5 @@ public class UserController {
 			return "success";
 		}
 	}
+
 }
