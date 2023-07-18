@@ -45,4 +45,12 @@
   	<select id="login" parameterType="com.josam.clink.user.UserVO" resultType="com.josam.clink.user.UserVO">
 		SELECT * FROM User WHERE userId = #{userId} AND pwd=MD5(#{pwd});
 	</select>
+	
+	<select id="checkDuplicateId" resultType="INTEGER">
+		select count(*) from User where userId =#{userId}
+	</select>
+	
+	 <select id="selectUserById" parameterType="INTEGER" resultType="com.josam.clink.user.UserVO">
+        SELECT * FROM User WHERE userId = #{userId}
+    </select>
 </mapper>
