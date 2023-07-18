@@ -5,9 +5,18 @@ target/
 !**/src/test/**/target/
 
 ### Security ###
+
+./src/main/resources/application.properties
+**/application.*
+**/*.properties
+
+./src/bin
+**/src/bin
+
 src/main/resources/application.properties
 application.*
 *.properties
+
 
 src/bin
 
