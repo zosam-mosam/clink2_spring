@@ -23,7 +23,7 @@ public class ChallengeController {
 	public ChallengePageVO challenge(@RequestParam String userNo) {
 		
 		UserVO uvo = new UserVO();
-		uvo.setUserNO(Integer.parseInt(userNo));
+		uvo.setUserNo(Integer.parseInt(userNo));
 		ChallengeVO cvo = challengeService.myChallenge(uvo);
 		List<ExpenseVO> today = challengeService.todayExpense(uvo);
 		int value=0;
@@ -36,11 +36,27 @@ public class ChallengeController {
 		cpvo.setTitle(cvo.getTitle());
 		cpvo.setDescription(cvo.getDescription());
 		cpvo.setGoal(cvo.getGoal());
-		cpvo.setUserNO(uvo.getUserNO());
+		cpvo.setUserNo(uvo.getUserNo());
 		cpvo.setValue(value);
 		cpvo.setToday(today);
 		cpvo.setWeek(challengeService.weekExpense(uvo));
 		
 		return cpvo; 
+	}
+	
+	@GetMapping("/refresh.do")
+	@ResponseBody
+	public ChallengePageVO refresh(@RequestParam String userNo, String startDate, String endDate) {
+		System.out.println(userNo);
+		System.out.println(startDate);
+		System.out.println(endDate);
+		ExpenseVO evo = new ExpenseVO();
+		evo.setUserNo(Integer.parseInt(userNo));
+		evo.setStartDate(startDate+" 00:00:00");
+		evo.setEndDate(endDate+" 23:59:59");
+		ChallengePageVO cpvo = new ChallengePageVO();
+		cpvo.setToday(challengeService.selectedExpense(evo));
+		
+		return cpvo;
 	}
 }

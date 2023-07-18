@@ -9,7 +9,7 @@ import lombok.Data;
 public class DayChallengeVO {
 	
 	private int challengeId;
-	private int userNO;
+	private int userNo;
 	private Timestamp successDate;
 	private BigDecimal amount;
 }

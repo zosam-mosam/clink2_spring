@@ -11,7 +11,7 @@ public class ExpenseVO {
 	
 	private int expenseId;
 	private int accountId;
-	private int userNO;
+	private int userNo;
 	private int categoryId;
 	private int expenseAmount;
 	private Timestamp expenseDate;

@@ -22,7 +22,7 @@ public class ChallengeService {
 		return mapper.todayExpense(vo);
 	}
 	
-	public List<ExpenseVO> weekExpense(UserVO uvo){
+	public List<ChartVO> weekExpense(UserVO uvo){
 		
 		return mapper.weekExpense(uvo);
 	};
